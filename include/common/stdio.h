@@ -4,7 +4,7 @@
 char getc(void);
 void putc(char c);
 
-coid puts(const char *s);
+void puts(const char *s);
 
 // This version of gets copies until newline, replacing newline with null char, or until buflen.
 // Whichever comes first.
