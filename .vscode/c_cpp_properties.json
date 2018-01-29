@@ -37,7 +37,8 @@
                 "${workspaceRoot}",
                 "${workspaceRoot}/include",
                 "${workspaceRoot}/include/common",
-                "${workspaceRoot}/include/kernel"
+                "${workspaceRoot}/include/kernel",
+                "${workspaceRoot}/include"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
