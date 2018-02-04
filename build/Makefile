@@ -10,7 +10,7 @@ else
 	CPU = cortex-a7
 endif
 
-CFLAGS= -mcpu=$(CPU) -fpic -ffreestanding $(DIRECTIVES)
+CFLAGS= -mcpu=$(CPU) -fpic -ffreestanding $(DIRECTIVES) -g
 CSRCFLAGS= -O2 -Wall -Wextra
 LFLAGS= -ffreestanding -O2 -nostdlib
 
@@ -54,4 +54,14 @@ clean:
 	rm $(IMG_NAME).img
 
 run: build
-	qemu-system-arm -m 1024 -M raspi2 -serial stdio -kernel kernel.elf
+	qemu-system-arm -m 128 -no-reboot -M raspi2 -serial stdio -kernel kernel.elf
+
+dbg:
+	~/Downloads/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gdb kernel.elf
+dbgrun: build gdbinit
+	qemu-system-arm -m 128 -no-reboot -M raspi2 -serial stdio -kernel kernel.elf -S -s
+
+PHONY: gdbinit
+gdbinit:
+	echo "target remote localhost:1234" > .gdbinit
+	echo "break kernel_main" >> .gdbinit
