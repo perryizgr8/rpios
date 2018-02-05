@@ -1,16 +1,9 @@
 #include <stddef.h>
 #include <stdint.h>
+#include <kernel/peripheral.h>
 
 #ifndef UART_H
 #define UART_H
-
-#ifdef MODEL_1
-#define PERIPHERAL_BASE 0x20000000
-#else
-#define PERIPHERAL_BASE 0x3F000000
-#endif
-
-#define PERIPHERAL_LENGTH 0x01000000
 
 typedef union uart_flags {
     struct
@@ -53,7 +46,7 @@ typedef union uart_control {
 enum
 {
     // The GPIO registers base address.
-    GPIO_BASE = PERIPHERAL_BASE + 0x200000,
+    GPIO_BASE = PERIPHERAL_BASE + GPIO_OFFSET,
     // The offsets for each register.
 
     // Controls actuation of pull up/down to ALL GPIO pins.
@@ -63,7 +56,7 @@ enum
     GPPUDCLK0 = (GPIO_BASE + 0x98),
 
     // The base address for UART.
-    UART0_BASE = PERIPHERAL_BASE + 0x201000,
+    UART0_BASE = PERIPHERAL_BASE + UART0_OFFSET,
 
     // The offsets for each register for the UART
     UART0_DR = (UART0_BASE + 0x00),
