@@ -75,6 +75,9 @@ void gpu_init(void)
         ;
 
     // Try to draw something.
+    printf("Drawing colored squares soon...\n");
+    for (volatile uint32_t yolo = 0; yolo < 1000000000; yolo++)
+        ;
     for (int i = 0; i < 100; i++)
     {
         for (int j = 0; j < 100; j++)
@@ -82,4 +85,5 @@ void gpu_init(void)
             write_pixel(i, j, &BLUE);
         }
     }
+    printf("Drawn. Can you see them?\n");
 }
