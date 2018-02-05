@@ -34,6 +34,7 @@ void mem_init(atag_t *atags)
 
     // Get total num of pages
     mem_size = get_mem_size(atags);
+    printf("%d memsize\n", mem_size);
     num_pages = mem_size / PAGE_SIZE;
 
     // Allocate space for all those pages' metadata.
