@@ -4,6 +4,7 @@
 #include <kernel/mem.h>
 #include <kernel/atag.h>
 #include <kernel/kerio.h>
+#include <kernel/framebuffer.h>
 #include <common/stdlib.h>
 
 void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags)
@@ -16,6 +17,7 @@ void kernel_main(uint32_t r0, uint32_t r1, uint32_t atags)
     uart_init();
     puts("Initializing memory module...\r\n");
     mem_init((atag_t *)atags);
+    gpu_init();
 
     puts("Hello, kernel world!\r\n");
 

@@ -125,8 +125,7 @@ void *kmalloc(uint32_t bytes)
     heap_segment_t *curr, *best = NULL;
     int diff, best_diff = 0x7fffffff; //max signed int
 
-    // Add header to the requested bytes and make it 4 byte aligned
-    // TODO: how is this 4 byte aligned?
+    // Add header to the requested bytes and make it 16 byte aligned
     bytes += sizeof(heap_segment_t);
     bytes += bytes % 16 ? 16 - (bytes % 16) : 0;
 
