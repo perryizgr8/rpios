@@ -136,7 +136,7 @@ char *itoa(int num, int base)
         intbuf[i] = intbuf[j];
         intbuf[j] = isneg;
         i++;
-        j++;
+        j--;
     }
     return intbuf;
 }
