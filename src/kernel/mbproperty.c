@@ -7,7 +7,7 @@ mail_message_t mailbox_read(void)
     mail_status_t stat;
     mail_message_t res;
 
-    printf("%x,%x\n", MAIL0_STATUS, MAIL0_READ);
+    //printf("%x,%x\n", MAIL0_STATUS, MAIL0_READ);
     // Make sure msg is from the right channel.
     do
     {
@@ -81,7 +81,7 @@ int send_messages(property_message_tag_t *tags)
     msg = kmalloc(bufsize);
     if (!msg)
     {
-        printf("Malloc failed for msg.\n");
+        //printf("Malloc failed for msg.\n");
         return -1;
     }
 
@@ -109,14 +109,14 @@ int send_messages(property_message_tag_t *tags)
 
     if (msg->req_res_code = REQUEST)
     {
-        printf("Send failed.\n");
+        //printf("Send failed.\n");
         kfree(msg);
         return 1;
     }
 
     if (msg->req_res_code == RESPONSE_ERROR)
     {
-        printf("Error response received.\n");
+        //printf("Error response received.\n");
         kfree(msg);
         return 2;
     }

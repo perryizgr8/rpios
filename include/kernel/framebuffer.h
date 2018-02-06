@@ -11,6 +11,10 @@ typedef struct framebuffer_info
     uint32_t pitch;
     void *buf;
     uint32_t buf_size;
+    uint32_t chars_width;
+    uint32_t chars_height;
+    uint32_t chars_x;
+    uint32_t chars_y;
 } framebuffer_info_t;
 
 typedef struct pixel
@@ -21,5 +25,7 @@ typedef struct pixel
 } pixel_t;
 
 void gpu_init(void);
+
+void gpu_putc(char c);
 
 #endif
